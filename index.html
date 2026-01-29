@@ -16,6 +16,15 @@
         color: #ffffff;
         overflow-x: hidden;
       }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Hide default cursor on desktops to use the custom one */
+      @media (min-width: 768px) and (pointer: fine) {
+        body, a, button, input, textarea, select, [role="button"] {
+          cursor: none !important;
+        }
+      }
       /* Custom scrollbar for chrome/safari/edge */
       ::-webkit-scrollbar {
         width: 8px;

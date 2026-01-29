@@ -88,6 +88,13 @@ const SpaceVoidBackground: React.FC = () => {
 };
 
 const Hero: React.FC = () => {
+  const handleScrollDown = () => {
+    const powerSection = document.getElementById('power');
+    if (powerSection) {
+        powerSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="intro" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
         {/* Space Void Animation Background */}
@@ -134,12 +141,20 @@ const Hero: React.FC = () => {
             </motion.p>
 
             <motion.div 
-                className="mt-20"
+                className="mt-20 flex flex-col items-center gap-4 cursor-pointer group"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 1 }}
+                onClick={handleScrollDown}
             >
-                <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-neutral-500 to-transparent mx-auto"></div>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 group-hover:text-white transition-colors duration-300">Scroll</span>
+                <div className="w-[30px] h-[50px] border border-neutral-700 rounded-full flex justify-center p-2 group-hover:border-white transition-colors duration-300">
+                    <motion.div 
+                        className="w-1 h-2 bg-white rounded-full"
+                        animate={{ y: [0, 15, 0], opacity: [1, 0.5, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                </div>
             </motion.div>
         </div>
     </section>

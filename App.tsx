@@ -6,6 +6,7 @@ import PowerSection from './components/PowerSection';
 import Founders from './components/Founders';
 import Footer from './components/Footer';
 import OverlayPage from './components/OverlayPage';
+import CustomCursor from './components/CustomCursor';
 
 const App: React.FC = () => {
   const [activePage, setActivePage] = useState<string | null>(null);
@@ -14,6 +15,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-black min-h-screen text-white selection:bg-indigo-500/30">
+      <CustomCursor />
       <Navbar onOpenPage={setActivePage} />
 
       {/* Main Landing Page Content */}
